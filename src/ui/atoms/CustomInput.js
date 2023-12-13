@@ -34,7 +34,7 @@ export const CustomInput = ({ label, placeholder, form, field, secureTextEntry, 
           keyboardType={keyboardType}
           secureTextEntry={secureTextEntry}
           onChangeText={(text) => setFieldValue(name, text)}
-          placeholder="cos"
+          placeholder={placeholder}
           style={[styles.input, {  borderColor: isFocused ? "#ff0000" : "#c0c0c0",}]} />
       </View>
       <ErrorsMessage form={form} name={name} />
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 10
   },
   input: {
     borderStyle: "solid",
@@ -56,7 +57,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingVertical: 0,
     paddingHorizontal: 4,
-    minWidth: 60,
   },
 
 });

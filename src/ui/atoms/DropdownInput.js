@@ -25,7 +25,7 @@ export const DropdownInput = ({form,field,setAccountType}) => {
   return (
     <View style={styles.container}>
       <View style={styles.input}>
-        <Text>Account Type: </Text>
+        <Text style={{flex: 1}}>Account Type: </Text>
         <TouchableOpacity onPress={toggleDropdown} style={styles.header}>
           <Text>{label}</Text>
         </TouchableOpacity>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingVertical: 0,
     paddingHorizontal: 4,
-    minWidth: 60,
+    flex:2
   },
   dropdown: {
     position: "absolute",

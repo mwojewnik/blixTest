@@ -15,17 +15,8 @@ import { DropdownInput } from "./src/ui/atoms/DropdownInput";
 
 
 const App = () => {
-  const [accountType, setAccountType] = useState();
+  const [accountType, setAccountType] = useState(1);
 
-  const validationSchema = Yup.object().shape({
-    accountType: Yup.string().required("Field is Requried "),
-    userName: Yup.string().required("Field is Requried"),
-    password: Yup.string().required("Field is Requried"),
-    serverAdress: Yup.string().required("Field is Requried"),
-    serverPath: Yup.string().required("Field is Requried"),
-    port: Yup.number().required("Field is Requried"),
-    ssl: Yup.string().required("Field is Requried"),
-  });
 
   const initialValues = {
     accountType: 1,
@@ -37,9 +28,20 @@ const App = () => {
     ssl: false,
   };
 
+  const validationSchema = Yup.object().shape({
+    accountType: Yup.string().required("Field is Requried "),
+    userName: Yup.string().required("Field is Requried").email('Invalid email'),
+    password: Yup.string().required("Field is Requried"),
+    serverAdress: Yup.string().required("Field is Requried"),
+    serverPath: Yup.string().required("Field is Requried"),
+    port: Yup.number().required("Field is Requried").max(4),
+    ssl: Yup.string().required("Field is Requried"),
+  });
+
+
+
   const handleSubmit = async (values) => {
-    console.log("values", values);
-    //console.log('ComplaintNewForm.handleSubmit | values =', JSON.stringify(values, null, 2));
+    console.log('NewForm.handleSubmit | values =', JSON.stringify(values, null, 2));
   };
 
   return (
@@ -50,21 +52,25 @@ const App = () => {
             <Field component={DropdownInput}
                    name="accountType"
                    setAccountType={setAccountType}
+
             />
             <Field component={CustomInput}
                    name="userName"
                    label="User Name"
+                   placeholder={"name@example.pl"}
+
 
             />
             <Field component={CustomInput}
                    name="password"
                    label="Password"
                    secureTextEntry
+                   placeholder={"required"}
             />
             <Field component={CustomInput}
                    name="serverAdress"
                    label="Server Adress"
-
+                   placeholder={"example.pl"}
             />
 
             {accountType === 1 &&
@@ -72,6 +78,7 @@ const App = () => {
                 <Field component={CustomInput}
                        name="serverPath"
                        label="Server Path"
+                       placeholder={"calendars/user"}
 
                 />
 
@@ -80,10 +87,13 @@ const App = () => {
                        label="Port"
                        keyboardType="numeric"
                 />
+
                 <Field component={Checkbox}
                        name="ssl"
                        label="Account Type"
                 />
+
+
               </View>
             }
 

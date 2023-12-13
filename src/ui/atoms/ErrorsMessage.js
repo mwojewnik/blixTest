@@ -22,7 +22,7 @@ export const ErrorsMessage = ({form, name}) => {
 
 const styles = StyleSheet.create({
     message: {
-        paddingVertical: 10,
-        color: 'red'
+        color: 'red',
+        alignSelf: 'flex-end'
     }
 })
