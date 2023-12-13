@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-export const DropdownInput = ({form,field}) => {
+export const DropdownInput = ({form,field,setAccountType}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(1);
+
+  const { name, value } = field;
+  const { setFieldValue } = form;
+
+  const [selectedItem, setSelectedItem] = useState(value);
 
   const label = selectedItem === 1 ? "Automatic" : "Manual";
-  const { name } = field;
-  const { setFieldValue } = form;
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
   const selectItem = (item) => {
     setSelectedItem(item);
-    setFieldValue(name,selectItem)
+    setAccountType(item)
+    setFieldValue(name, item)
     setIsOpen(false);
   };
 
