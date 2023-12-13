@@ -28,7 +28,7 @@ yarn --version
 
 ## Installation
 
-1. Clone the repository: `git clone ` //Todo
+1. Clone the repository: `git clone git@github.com:mwojewnik/blixTest.git` 
 2. Navigate to the project directory: `cd BleakTest`
 3. Install dependencies: `npm install` or `yarn install`
 
