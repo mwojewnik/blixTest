@@ -1,31 +1,30 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet} from 'react-native';
 import CheckBox from 'react-native-check-box'
 
-export const Checkbox = ({form,field}) => {
+export const Checkbox = ({form, field}) => {
 
-  const { name,value } = field;
-  const { setFieldValue } = form;
+    const {name, value} = field;
+    const {setFieldValue} = form;
 
 
-
-  return (
-    <View style={styles.container}>
-      <CheckBox
-        onClick={()=> setFieldValue(name,!value)}
-        isChecked={value}
-        checkBoxColor={'#ff0000'}
-      />
-      <Text>Use SSL</Text>
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            <CheckBox
+                onClick={() => setFieldValue(name, !value)}
+                isChecked={value}
+                checkBoxColor={'#ff0000'}
+            />
+            <Text>Use SSL</Text>
+        </View>
+    );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    flex: 1,
-alignSelf: 'flex-end'
-  },
+    container: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        flex: 2,
+        marginHorizontal: 0,
+    }
 });

@@ -25,10 +25,11 @@ export const CustomInput = ({ label, placeholder, form, field, secureTextEntry, 
 
 
   return (
-    <View>
+    <View style={{marginBottom: 8}}>
       <View style={styles.container}>
         <Text style={{flex: 1, textAlign: 'right', marginRight: 10}}>{label}:</Text>
         <TextInput
+            value={value}
           onFocus={handleFocus}
           onBlur={handleBlur}
           keyboardType={keyboardType}
@@ -48,7 +49,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: 10
   },
   input: {
     borderStyle: "solid",
