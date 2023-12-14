@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {View, Text, TouchableOpacity, StyleSheet, TouchableWithoutFeedback} from "react-native";
 
-export const DropdownInput = ({form, field, setAccountType,formik}) => {
+export const DropdownInput = ({form, field, setAccountType,formik,setPayload}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const {name, value} = field;
@@ -21,6 +21,7 @@ export const DropdownInput = ({form, field, setAccountType,formik}) => {
         setSelectedItem(item);
         setAccountType(item)
         setFieldValue(name, item)
+        setPayload(null)
         formik.resetForm();
         setIsOpen(false);
 
